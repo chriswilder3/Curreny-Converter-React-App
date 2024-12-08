@@ -1,70 +1,72 @@
-# GitHub Codespaces ♥️ React
+# Currency Converter
 
-Welcome to your shiny new Codespace running React! We've got everything fired up and running for you to explore React.
+A React-based **Currency Converter** application that allows users to convert amounts between various currencies in real-time using exchange rates fetched from an external API.
 
-You've got a blank canvas to work on from a git perspective as well. There's a single initial commit with the what you're seeing right now - where you go from here is up to you!
+## Features
+- Input currency amount to convert.
+- Select source and target currencies from dropdowns.
+- Real-time conversion of currencies.
+- Swap functionality to quickly reverse the source and target currencies.
+- Responsive UI with Tailwind CSS for styling.
 
-Everything you do here is contained within this one codespace. There is no repository on GitHub yet. If and when you’re ready you can click "Publish Branch" and we’ll create your repository and push up your project. If you were just exploring then and have no further need for this code then you can simply delete your codespace and it's gone forever.
+---
 
-This project was bootstrapped for you with [Vite](https://vitejs.dev/).
+## Preview
+![Currency Converter Preview](public/currencyConverter.png)
 
-## Available Scripts
 
-In the project directory, you can run:
 
-### `npm start`
+## API Used
+This project fetches real-time currency conversion rates from Currency API.
 
-We've already run this for you in the `Codespaces: server` terminal window below. If you need to stop the server for any reason you can just run `npm start` again to bring it back online.
+Example API Endpoint:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000/](http://localhost:3000/) in the built-in Simple Browser (`Cmd/Ctrl + Shift + P > Simple Browser: Show`) to view your running application.
+    ```bash
+    https://latest.currency-api.pages.dev/v1/currencies/{currency}.json
 
-The page will reload automatically when you make changes.\
-You may also see any lint errors in the console.
+    ```
+Where {currency} is the source currency code (e.g., usd, eur, etc.).
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## How It Works
 
-### `npm run build`
+### Custom Hook (`useCurrencyInfo`):
+- Fetches conversion rates for a given source currency from the API.
+- Stores the conversion rates as a JavaScript object.
+- Updates data whenever the source currency changes.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### InputBox Component:
+- Provides input fields for the amount and currency selection.
+- Updates parent states when the user changes values.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Main Application Logic:
+- `convert` function calculates the converted amount using the selected currency's conversion rate.
+- `swap` function swaps the source and target currencies while maintaining the current values.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-## Learn More
+## Installation and Setup
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/your-username/currency-converter.git
+   cd currency-converter
 
-You can learn more in the [Vite documentation](https://vitejs.dev/guide/).
+2. **Install dependencies:**
 
-To learn Vitest, a Vite-native testing framework, go to [Vitest documentation](https://vitest.dev/guide/)
+   ```bash
+   npm install
+   ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+3. **Start the development server:**
 
-### Code Splitting
+   ```bash
+   npm start
+   ```
 
-This section has moved here: [https://sambitsahoo.com/blog/vite-code-splitting-that-works.html](https://sambitsahoo.com/blog/vite-code-splitting-that-works.html)
+4. Open your browser and navigate to http://localhost:3000.
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://github.com/btd/rollup-plugin-visualizer#rollup-plugin-visualizer](https://github.com/btd/rollup-plugin-visualizer#rollup-plugin-visualizer)
 
-### Making a Progressive Web App
 
-This section has moved here: [https://dev.to/hamdankhan364/simplifying-progressive-web-app-pwa-development-with-vite-a-beginners-guide-38cf](https://dev.to/hamdankhan364/simplifying-progressive-web-app-pwa-development-with-vite-a-beginners-guide-38cf)
 
-### Advanced Configuration
 
-This section has moved here: [https://vitejs.dev/guide/build.html#advanced-base-options](https://vitejs.dev/guide/build.html#advanced-base-options)
 
-### Deployment
-
-This section has moved here: [https://vitejs.dev/guide/build.html](https://vitejs.dev/guide/build.html)
-
-### Troubleshooting
-
-This section has moved here: [https://vitejs.dev/guide/troubleshooting.html](https://vitejs.dev/guide/troubleshooting.html)

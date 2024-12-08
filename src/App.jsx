@@ -18,14 +18,14 @@ function App() {
   // Now we need to use our custom hook to get
   // conversion rates of a currency. What will we pass
   // as arg to that hook? since it takes currency as arg,
-  // Note that 'from' value is needs to be passed since
+  // Note that 'from' value needs to be passed since
   // its the source currency for which we need that data.
   const currencyInfo = useCurrencyInfo(from)
 
   // Note that this returned data will be in the form of
   // Js object. But to display into input box We need 
-  // both currencylist(keys of object), 
-  // conversionRates( vals of object)
+  // both currencylist(keys of object) and
+  // conversionRate for target currency
 
   const currencyList = Object.keys(currencyInfo || {}) 
 
