@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import InputBox from './components/InputBox';
-import useCurrencyInfo from './hooks/useCurrencyInfo';
+import useCurrencyInfo from './hooks/useCurrencyInfo.js';
 
 
 function App() {
@@ -27,7 +27,7 @@ function App() {
   // both currencylist(keys of object), 
   // conversionRates( vals of object)
 
-  const currencyList = Object.keys(currencyInfo)
+  const currencyList = Object.keys(currencyInfo || {}) 
 
   // And when we convert, the amount must be
   // multiplied by conversion rate(of target currency
@@ -50,6 +50,7 @@ function App() {
 
 
   return (
+
     <div
             className="w-full h-screen flex flex-wrap justify-center items-center bg-cover bg-no-repeat"
             style={{
@@ -69,7 +70,7 @@ function App() {
                     >
                         <div className="w-full mb-1">
                             <InputBox
-                                label={from}
+                                label="From"
                                 amount={amount}
                                 currencyOptions={currencyList}
                                 selectCurrency={from}
@@ -92,7 +93,7 @@ function App() {
                         </div>
                         <div className="w-full mt-1 mb-4">
                             <InputBox
-                                label={to}
+                                label="To"
                                 amount={convertedAmount}
                                 currencyOptions={currencyList}
                                 selectCurrency={to}
@@ -102,11 +103,11 @@ function App() {
                                 onAmountChange={ (amt)=> 
                                   setAmount(amt)
                                 }
-                                
+                                amountDisable
                             />
                         </div>
                         <button type="submit" className="w-full bg-blue-600 text-white px-4 py-3 rounded-lg">
-                            Convert 
+                            Convert {from.toUpperCase()} to {to.toUpperCase()}
                         </button>
                     </form>
                 </div>

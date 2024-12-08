@@ -17,7 +17,7 @@ function InputBox({ label,
                     currencyDisable = false
                 }
     ) {
-    // Label is type of currency, ex: usd,inr
+    // Label tells whether its source/target box (vals : From/ To)
     // extraClasses is for additional styling if needed
     // amount is number we want to display.
     // onAmountChange tells us whether amount has been changed,

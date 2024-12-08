@@ -1,4 +1,4 @@
-const { useEffect, useState } = require("react");
+import { useEffect, useState } from "react" ;
 
 
 function useCurrencyInfo( currency ){
@@ -21,7 +21,7 @@ function useCurrencyInfo( currency ){
     useEffect( () => {
         // Now fetch data using fetch, make sure to
         // pass currency inside url string of API
-        let url = `https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/${currency}.json`
+        let url = `https://latest.currency-api.pages.dev/v1/currencies/${currency}.json`
 
         fetch(url)
         .then( (response) =>{
@@ -40,6 +40,7 @@ function useCurrencyInfo( currency ){
             // Which is accessed by giving currency as key.
 
             setCurrData( data[currency])
+            console.log(setCurrData);
             
         })
 
