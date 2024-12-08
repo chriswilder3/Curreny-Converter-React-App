@@ -47,9 +47,9 @@ Where {currency} is the source currency code (e.g., usd, eur, etc.).
 ## Installation and Setup
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/your-username/currency-converter.git
-   cd currency-converter
-
+   git clone https://github.com/chriswilder3/Curreny-Converter-React-App.git
+   cd Curreny-Converter-React-App
+   ```
 2. **Install dependencies:**
 
    ```bash
