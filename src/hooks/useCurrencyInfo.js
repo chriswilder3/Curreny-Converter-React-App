@@ -13,9 +13,10 @@ function useCurrencyInfo( currency ){
     // since we want fetch conversion rate whenever
     // its value changes.
 
-    const [currencyData, setData] =  useState({})
+    const [currencyData, setCurrData] =  useState({})
     // We will learn its use later inside useEffect.
-    // It holds data to be returned.
+    // It holds data to be returned. Its initialized
+    // with {} since currencydata will also be JS object. 
 
     useEffect( () => {
         // Now fetch data using fetch, make sure to
@@ -30,9 +31,27 @@ function useCurrencyInfo( currency ){
             // Now the parse correct data is in data
             // But we cant assign it to normal var.
             // To be able to update in UI, it needs to
-            // useState var.
+            // useState var we defined earlier.
+
+            // setCurrData(data);
+            // But hold on, looking at API, we know that
+            // it also holds date and other info.
+            // We only need conversion rates inside it.
+            // Which is accessed by giving currency as key.
+
+            setCurrData( data[currency])
+            
         })
 
     }
     ,[ currency])
+
+    // Now at the end, this custom hook function must
+    // return the data also. Note that we return only
+    // the variable here.
+
+    return currencyData;
+
 }
+
+export default useCurrencyInfo;
